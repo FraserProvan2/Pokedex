@@ -11,7 +11,6 @@ $pid = $_GET["pid"];
 
 //if pokemonID is false or greater than 151
 if (!$pid or $pid > 151) {
-
     //set pokemon ID to 1 (deafult: Bulbasaur)
     $pid = '1';
 }
@@ -49,7 +48,7 @@ $pokemon     = $pokemonInfo->fetch();
             <div class="row">
                 <div class="col-sm">
                     <form id="tools">
-                        <input type="text" placeholder="No. (1-151)" id="searchPokemon" name="pid">
+                        <input type="text" placeholder="No. (1-151)" id="searchPokemon" name="pid" onkeypress="return isNumberKey(event)">
                         <button type="submit" class="toolsBtn">Go!</button>
                     </form>
                     <form action='randomPokemon.php' >
@@ -92,5 +91,14 @@ $pokemon     = $pokemonInfo->fetch();
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                 crossorigin="anonymous"></script>
 </body>
+
+<script>
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}    
+</script>
 
 </html>
