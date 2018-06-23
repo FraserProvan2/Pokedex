@@ -1,7 +1,7 @@
-### Gen 1 Pokedex
+# Gen 1 Pokedex
 Demo:
 
-# Credits
+### Credits
 * Sprites: https: //veekun.com/dex/downloads
 * MySQL (Derived): //github.com/m4rtint/PokemonDatabase
 * Descriptions: 
