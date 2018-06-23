@@ -2,6 +2,6 @@
 Demo:
 
 ### Credits
-* Sprites: https: //veekun.com/dex/downloads
-* MySQL (Derived): //github.com/m4rtint/PokemonDatabase
+* Sprites: https://veekun.com/dex/downloads
+* MySQL (Derived): https://github.com/m4rtint/PokemonDatabase
 * Descriptions: 
