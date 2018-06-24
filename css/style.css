@@ -1,7 +1,5 @@
-#pokedex-area {
-    text-align: center;
-    vertical-align: middle;
-    margin-top: 20px;
+body {
+    color:#222224;
 }
 
 .sprite {
@@ -10,30 +8,9 @@
     margin-right: auto;
 }
 
-#content-main {
-    border-radius: 5px;
-    background-color: #fc6262;
-    padding: 7.5px;
-    margin-bottom:10px;
-}
-
-#content-second {
-    border-radius: 5px;
-    background-color: #F3F3F3;
-    padding:10px;
-}
-
 #tools {
-    margin: 0 auto; 
     width:350px;
     padding-bottom:10px;
-    text-align: center;
-}
-
-#content-main-body {
-    background-color: #F3F3F3;
-    padding:10px;
-    border-radius: 5px;
 }
 
 #searchPokemon {
@@ -54,31 +31,87 @@
     color:white;
 }
 
-@media only screen and (max-width: 700px) {
-    .sprite  {
-    max-width:130px;
-    }
+@media only screen and (max-width: 800px) {
     #tools {
         text-align: left;
+    }
+
+    #random-btn{
+        float:bottom;
     }
 }
 
 #table-heading {
-    background-color: #fc6262;
+    background-color: #90CAF9;
+}
+
+.table td, .table th {
+    padding: .4rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
 }
 
 @media only screen and (max-width: 700px) {
     .table-toHide {
       display:none;
     }
-  }
+    #left {
+     margin-bottom:10px;
+    }
+}
 
 .pokemonList{
     overflow-y:scroll; 
-    height:400px;
+    height:300px;
   }
 
 .title {
     text-align: center;
 }
 
+#top {
+    background-color: #ee1515;
+    color:white;
+    border-radius: 7.5px;
+    padding: 7.5px;
+    margin-bottom: 7.5px;
+    margin-top:7.5px;
+}
+
+#left {
+    padding-top:10px;
+    padding-bottom:10px;
+    border-radius: 7.5px;
+    background-color:#f9f9f9;
+}
+
+#right {
+    border-radius: 7.5px;
+}
+
+#footer {
+    color:#696969;
+    border-radius: 7.5px;
+    margin-top: 7.5px;
+    text-align: center;
+    margin-bottom: -15px;
+    margin-top: 10px;
+}
+
+#main-body {
+    margin-top:20px;
+    padding-left:25px;
+    padding-right:25px;
+    padding-top:4px;
+    padding-bottom:10px;
+    background-color:#E8E8E8;
+    border-radius: 7.5px;
+}
+
+th {
+    font-weight: normal;
+}
+
+.type {
+    font-weight:normal;
+}

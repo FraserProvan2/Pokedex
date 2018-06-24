@@ -1,5 +1,5 @@
 # Gen 1 Pokedex
-Demo:
+Demo: http://www.fraserprovan.co.uk/projects/pokedex/pokedex.php
 
 ### Credits
 * Sprites: https://veekun.com/dex/downloads
