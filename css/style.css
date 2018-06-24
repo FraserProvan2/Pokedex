@@ -12,14 +12,15 @@
 
 #content-main {
     border-radius: 5px;
-    background-color: #FF5252;
+    background-color: #fc6262;
     padding: 7.5px;
     margin-bottom:10px;
 }
 
 #content-second {
     border-radius: 5px;
-    background-color: #F5F6F7;
+    background-color: #F3F3F3;
+    padding:10px;
 }
 
 #tools {
@@ -30,7 +31,7 @@
 }
 
 #content-main-body {
-    background-color: #F5F6F7;
+    background-color: #F3F3F3;
     padding:10px;
     border-radius: 5px;
 }
@@ -61,3 +62,23 @@
         text-align: left;
     }
 }
+
+#table-heading {
+    background-color: #fc6262;
+}
+
+@media only screen and (max-width: 700px) {
+    .table-toHide {
+      display:none;
+    }
+  }
+
+.pokemonList{
+    overflow-y:scroll; 
+    height:400px;
+  }
+
+.title {
+    text-align: center;
+}
+

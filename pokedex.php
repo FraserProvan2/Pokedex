@@ -2,7 +2,6 @@
 //Fraser Provan 22/06/2018
 //Pokedex home page
 
-
 //connects to database
 $conn = new PDO("mysql:host=localhost;dbname=medotusc_pokedex;", "medotusc_fraser", "NHD4?oWU5Bpo");
 
@@ -11,7 +10,7 @@ $pid = $_GET["pid"];
 
 //if pokemonID is false or greater than 151
 if (!$pid or $pid > 151) {
-    //set pokemon ID to 1 (deafult: Bulbasaur)
+    //set pokemon ID to 1 (default: Bulbasaur)
     $pid = '1';
 }
 
@@ -30,6 +29,7 @@ $pokemon     = $pokemonInfo->fetch();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type='text/javascript' src='scripts/main.js'></script>
     <title>Pokédex</title>
 </head>
 
@@ -50,10 +50,9 @@ $pokemon     = $pokemonInfo->fetch();
                     <form id="tools">
                         <input type="text" placeholder="No. (1-151)" id="searchPokemon" name="pid" onkeypress="return isNumberKey(event)">
                         <button type="submit" class="toolsBtn">Go!</button>
+                        <input type="button" class="toolsBtn" onclick="randomPokemon()" value="Random"/>
                     </form>
-                    <form action='randomPokemon.php' >
-                        <button type="submit" class="toolsBtn">Random</button>
-                    </form>
+
                 </div>
             </div>
 
@@ -78,11 +77,55 @@ $pokemon     = $pokemonInfo->fetch();
             </div>
         </div>
 
+        <!--List of pokemon-->
         <div id="content-second">
-            <h5></h5>
-            <div>
+            <h4 class="title">All Pokémon</h4>
+            <div class="pokemonList">
 
-            </div>
+        <?php
+        // Selects all pokemon
+        $pokemonResults = $conn->query("SELECT * from pokemon");
+        ?>
+
+        <table class='table table-hover' id='myTable'>
+            <thead>
+                <tr>
+                    <th scope='col' id='table-heading'>Number</th>
+                    <th scope='col' id='table-heading'>Name</th>
+                    <th scope='col' id='table-heading' class="table-toHide">Type 1</th>
+                    <th scope='col' id='table-heading' class="table-toHide">Type 2</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <?php
+                    // Displays pokemon results in table
+                    while ($allPokemon = $pokemonResults->fetch()) {
+                    $pidAll = $allPokemon['pid'];
+                ?>
+
+                <tr>
+                    <td>
+                        <?php echo $allPokemon['pid']; //Number ?> 
+                    </td>
+                    <td>
+                        <a href='pokedex.php?pid=<?php echo $pidAll; //Name ?>'>
+                            <?php echo $allPokemon['tname']; ?>
+                        </a>
+                    </td>
+                    <td class="table-toHide">
+                        <?php echo $allPokemon['type1']; //Type 1 ?>
+                    </td>
+                    <td class="table-toHide">
+                        <?php echo $allPokemon['type2']; //Type 2 ?>
+                    </td>
+                </tr>
+
+                <?php }; //loop ends ?>
+            </tbody>
+        </table>
+        </div>
 
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
                 crossorigin="anonymous"></script>
@@ -91,14 +134,5 @@ $pokemon     = $pokemonInfo->fetch();
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                 crossorigin="anonymous"></script>
 </body>
-
-<script>
-function isNumberKey(evt){
-    var charCode = (evt.which) ? evt.which : event.keyCode
-    if (charCode > 31 && (charCode < 48 || charCode > 57))
-        return false;
-    return true;
-}    
-</script>
 
 </html>
