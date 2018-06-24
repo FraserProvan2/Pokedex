@@ -29,6 +29,7 @@ $pokemon     = $pokemonInfo->fetch();
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/types.css">
     <script type='text/javascript' src='scripts/main.js'></script>
     <title>Pokédex</title>
 </head>
@@ -57,19 +58,41 @@ $pokemon     = $pokemonInfo->fetch();
                     </form>
                     
                     <!--Pokemon Info + Images-->
-                    <h4>#<?php echo $pokemon['pid']; ?> <?php echo $pokemon['tname']; ?></h4>
+                    <h4 class="pokemonName">#<?php echo $pokemon['pid']; ?> <?php echo $pokemon['tname']; ?></h4>
                     <img src="img/sprites/<?php echo $pokemon['pid']; ?>.png" class="sprite">
                     <img src="img/sprites/shiny/<?php echo $pokemon['pid']; ?>.png" class="sprite">
                     <img src="img/sprites/back/<?php echo $pokemon['pid']; ?>.png" class="sprite">
                     <img src="img/sprites/back/shiny/<?php echo $pokemon['pid']; ?>.png" class="sprite">
-                    <h6><a class="type">Type 1: </a><?php echo $pokemon['type1']; ?></h6>
-                    <h6><a class="type">Type 2: </a><?php echo $pokemon['type2']; ?></h6>
-                    <h6>Description:</h6>
+                    
+                    <?php 
+
+                    //Finds types and puts them into new variables ()
+                    include 'include/typeFinder.php';
+
+                    //Finds and displays either 1 or 2 types
+                    if (!$pokemon['type2']) {
+                    ?>
+                        <h6><?php echo $typeOneFound; ?><a class="type"></h6></a>
+                    <?php 
+
+                    }
+                    else {
+                    ?>
+                        <h6><?php echo $typeOneFound; ?><a class="type"></a><a class="type"></a><?php echo $typeTwoFound; ?></h6>
+                    <?php 
+                    }
+                    ?>
+                    
+                    <h6>Description</h6>
                     <p><?php echo $pokemon['description']; ?><p>
                 </div>
-
+                    
                 <!--Pokemon List-->
                 <div class="col-sm-7 pokemonList" id="right">
+                <div class="form-group">
+                    <input type="text" class="searchPokemonName" placeholder="Search by Name..." onkeyup="searchPokemon()" id="myInput">
+                </div>
+
                         <?php
                         //selects all pokemon
                         $pokemonResults = $conn->query("SELECT * from pokemon");
