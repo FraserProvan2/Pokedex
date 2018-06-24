@@ -35,7 +35,7 @@ $pokemon     = $pokemonInfo->fetch();
 </head>
 
 <body style="background-image: url('img/pixel_weave.png');">
-    <div class="container">
+<div class="container">
         <div id="main-body">
             <!--Row 1-->
             <div class="row">
@@ -88,7 +88,7 @@ $pokemon     = $pokemonInfo->fetch();
                 </div>
                     
                 <!--Pokemon List-->
-                <div class="col-sm-7 pokemonList" id="right">
+                <div class="col-sm-7 pokemonList" id="right"> 
                 <div class="form-group">
                     <input type="text" class="searchPokemonName" placeholder="Search by Name..." onkeyup="searchPokemon()" id="myInput">
                 </div>

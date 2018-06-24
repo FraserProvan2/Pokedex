@@ -31,23 +31,25 @@ body {
     background-color: rgb(202, 202, 202);
 }
 
-@media only screen and (max-width: 800px) {
-    #tools {
-        text-align: left;
-    }
-
-    #random-btn{
-        float:bottom;
-    }
-}
-
 .table td, .table th {
     padding: .4rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6;
 }
 
-@media only screen and (max-width: 700px) {
+.pokemonList{
+    overflow-y:scroll; 
+    height:325px;
+  }
+
+@media only screen and (max-width: 800px) {
+    #tools {
+        text-align: left;
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
     .table-toHide {
       display:none;
     }
@@ -60,12 +62,17 @@ body {
     .pokemonName {
         font-size: 1.3rem;
     }
+    #random-btn{
+        float:bottom;
+        display: block;
+        clear: both;
+        margin-top:5px;
+    }
+    .pokemonList{ 
+        height:450px;
+      }
 }
 
-.pokemonList{
-    overflow-y:scroll; 
-    height:300px;
-  }
 
 .title {
     text-align: center;
@@ -107,7 +114,7 @@ body {
     padding-right:25px;
     padding-top:4px;
     padding-bottom:10px;
-    background-color:#E0E0E0;
+    background-color:rgb(236, 234, 234);
     border-radius: 7.5px;
     -webkit-box-shadow: 10px 11px 20px -12px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 11px 20px -12px rgba(0,0,0,0.75);
