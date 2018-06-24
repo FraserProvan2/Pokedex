@@ -51,14 +51,13 @@ $pokemon     = $pokemonInfo->fetch();
                 <div class="col-sm-5" id="left">
                     
                     <!--Tools-->
-                    <form id="tools">
-                        <input type="text" placeholder="1-151" id="searchPokemon" name="pid" onkeypress="return isNumberKey(event)">
-                        <button type="submit" class="toolsBtn">Go!</button>
-                        <input type="button" class="toolsBtn" onclick="randomPokemon()" value="Random" id="random-btn"/>
+                    <form id="tools" class="row">
+                            <?php include 'include/dropdownPID.php'; ?>
+                            <input type="button" class="toolsBtn col" onclick="randomPokemon()" value="Random" id="random-btn"/> 
                     </form>
                     
                     <!--Pokemon Info + Images-->
-                    <h4 class="pokemonName">#<?php echo $pokemon['pid']; ?> <?php echo $pokemon['tname']; ?></h4>
+                    <h4 class="pokemonName"><a style="color:#E53935;font-weight:bold;">#</a><?php echo $pokemon['pid']; ?> <?php echo $pokemon['tname']; ?></h4>
                     <img src="img/sprites/<?php echo $pokemon['pid']; ?>.png" class="sprite">
                     <img src="img/sprites/shiny/<?php echo $pokemon['pid']; ?>.png" class="sprite">
                     <img src="img/sprites/back/<?php echo $pokemon['pid']; ?>.png" class="sprite">
@@ -89,10 +88,27 @@ $pokemon     = $pokemonInfo->fetch();
                     
                 <!--Pokemon List-->
                 <div class="col-sm-7 pokemonList" id="right"> 
-                <div class="form-group">
-                    <input type="text" class="searchPokemonName" placeholder="Search by Name..." onkeyup="searchPokemon()" id="myInput">
+                <div class="form-group row">
+                    <input type="text" class="searchPokemonName col" placeholder="Search Name" onkeyup="searchPokemon()" id="myInput">
+                    <select class="1-100 col searchPokemonType" placeholder="1-151" id="myInputType" name="pid" onclick="searchType()" placeholder="1" value="1">
+                        <option value="">Sort by Type</option>    
+                        <option value="Bug">Bug</option>
+                        <option value="Dragon">Dragon</option>
+                        <option value="Ice">Ice</option>
+                        <option value="Fighting">Fighting</option>
+                        <option value="Fire">Fire</option>
+                        <option value="Flying">Flying</option>
+                        <option value="Grass">Grass</option>
+                        <option value="Ghost">Ghost</option>
+                        <option value="Ground">Ground</option>
+                        <option value="Electric">Electric</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Poison">Poison</option>
+                        <option value="Psychic">Psychic</option>
+                        <option value="Rock">Rock</option>
+                        <option value="Water">Water</option>
+                    </select>
                 </div>
-
                         <?php
                         //selects all pokemon
                         $pokemonResults = $conn->query("SELECT * from pokemon");
