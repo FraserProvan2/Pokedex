@@ -23,12 +23,11 @@ body {
     border: 1px solid transparent;
     padding: .375rem .75rem;
     border-radius: .25rem;
-    background-color: #90CAF9;
+    background-color: #81C784;
 }
 
 .toolsBtn:hover {
-    background-color: #42A5F5;
-    color:white;
+    background-color: #66BB6A;
 }
 
 @media only screen and (max-width: 800px) {
@@ -39,10 +38,6 @@ body {
     #random-btn{
         float:bottom;
     }
-}
-
-#table-heading {
-    background-color: #90CAF9;
 }
 
 .table td, .table th {
@@ -67,10 +62,11 @@ body {
 
 .title {
     text-align: center;
+    padding-top:6px;
 }
 
 #top {
-    background-color: #ee1515;
+    background-color:#E53935 ;
     color:white;
     border-radius: 7.5px;
     padding: 7.5px;
@@ -90,7 +86,7 @@ body {
 }
 
 #footer {
-    color:#696969;
+    color:#474747;
     border-radius: 7.5px;
     margin-top: 7.5px;
     text-align: center;
@@ -104,12 +100,12 @@ body {
     padding-right:25px;
     padding-top:4px;
     padding-bottom:10px;
-    background-color:#E8E8E8;
+    background-color:#E0E0E0;
     border-radius: 7.5px;
-}
-
-th {
-    font-weight: normal;
+    -webkit-box-shadow: 10px 11px 20px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 11px 20px -12px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 20px -12px rgba(0,0,0,0.75);
+    border: 2px solid #C8C8C8;
 }
 
 .type {

@@ -33,14 +33,14 @@ $pokemon     = $pokemonInfo->fetch();
     <title>Pokédex</title>
 </head>
 
-<body>
+<body style="background-image: url('img/pixel_weave.png');">
     <div class="container">
         <div id="main-body">
             <!--Row 1-->
             <div class="row">
                 <!--Title-->
                 <div class="col-sm" id="top">
-                    <h2 class="title">Gen 1 Pokédex</h2>
+                    <h2 class="title">Pokédex</h2>
                 </div>
             </div>
 
@@ -51,7 +51,7 @@ $pokemon     = $pokemonInfo->fetch();
                     
                     <!--Tools-->
                     <form id="tools">
-                        <input type="text" placeholder="No. (1-151)" id="searchPokemon" name="pid" onkeypress="return isNumberKey(event)">
+                        <input type="text" placeholder="1-151" id="searchPokemon" name="pid" onkeypress="return isNumberKey(event)">
                         <button type="submit" class="toolsBtn">Go!</button>
                         <input type="button" class="toolsBtn" onclick="randomPokemon()" value="Random" id="random-btn"/>
                     </form>
