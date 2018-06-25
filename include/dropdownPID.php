@@ -1,5 +1,5 @@
 <select class="1-100 idSelection col" placeholder="1-151" id="searchPokemon" name="pid" onchange="this.form.submit()">
-    <option value="">Select by ID</option>    
+    <option value="">Select by ID</option>
     <option value="1">1</option>
     <option value="2">2</option>
     <option value="3">3</option>

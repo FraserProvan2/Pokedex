@@ -25,7 +25,6 @@ body {
     text-align: center;
 }
 
-
 .randomPokemon {
     background-color:white;
     width: 100%;
@@ -63,7 +62,13 @@ body {
 .pokemonList{
     overflow-y:scroll; 
     height:250px;
-  }
+}
+
+.secretNumber {
+    color:#e2e2e2!important;
+    margin-top: 10px;
+    text-align: center;
+}
 
 .title {
     text-align: center;
@@ -142,29 +147,43 @@ body {
     margin-top:10px;
 }
 
+.title-normal {
+    color:#E53935;
+    font-weight:bold;
+}
+
+.title-shiny {
+    color:#FFD600;
+    font-weight:bold;
+}
+
 @media only screen and (max-width: 800px) {
     #tools {
         text-align: left;
     }
-
 }
 
 @media only screen and (max-width: 1000px) {
     .table-toHide {
       display:none;
     }
+
     #left {
      margin-bottom:10px;
     }
+
     .title {
         font-size: 1.3rem;
     }
+
     .pokemonName {
         font-size: 1.3rem;
     }
+
     .pokemonList{ 
         height:450px;
-      }
+    }
+
     #main-body {
         margin-top:2%;
     }
