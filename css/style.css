@@ -25,6 +25,21 @@ body {
     text-align: center;
 }
 
+
+.randomPokemon {
+    background-color:white;
+    width: 100%;
+    padding:2.4px 10px;
+    border-radius: .25rem;
+    border: 1px solid rgb(202, 202, 202);
+    text-align: center;
+    margin-left:3px;
+}
+
+.randomPokemon:hover {
+    background-color: rgb(202, 202, 202);
+}
+
 .toolsBtn {
     border: 1px solid transparent;
     padding: .2rem .75rem;
@@ -32,6 +47,7 @@ body {
     background-color: #CFD8DC;
     margin-left:5px;
     margin-top:3px;
+    text-align: center;
 }
 
 .toolsBtn:hover {
@@ -46,7 +62,7 @@ body {
 
 .pokemonList{
     overflow-y:scroll; 
-    height:320px;
+    height:250px;
   }
 
 .title {
@@ -103,7 +119,6 @@ body {
 }
 
 .searchPokemonName {
-    margin-top: 13px;
     width: 100%;
     padding:2.4px 10px;
     border-radius: .25rem;
@@ -114,7 +129,6 @@ body {
 }
 
 .searchPokemonType{
-    margin-top: 13px;
     width: 100%;
     padding:2.4px 10px;
     border-radius: .25rem;
@@ -124,6 +138,9 @@ body {
     margin-right:2px;
 }
 
+.next-previous {
+    margin-top:5px;
+}
 
 @media only screen and (max-width: 800px) {
     #tools {

@@ -50,14 +50,50 @@ $pokemon     = $pokemonInfo->fetch();
                 <!--Pokemon Info-->
                 <div class="col-sm-5" id="left">
                     
-                    <!--Tools-->
-                    <form id="tools" class="row">
-                            <?php include 'include/dropdownPID.php'; ?>
-                            <input type="button" class="toolsBtn col" onclick="randomPokemon()" value="Random" id="random-btn"/> 
-                    </form>
+                    <!--Previous and Next-->
+                    <?php 
+                    $previous = $pokemon['pid'] - 1; //prepares varaible for previus
+                    $next = $pokemon['pid'] + 1; //prepares varaible for next
+                    ?>
+
+                    <div id="tools" class="row">
+
+                    <!--Previous-->
+                    <?php 
+                    //only shows previous link if pid is greater than 1
+                    if ($pokemon['pid'] > 1) {
+                        ?> <a class="col-2 next-previous" href='pokedex.php?pid=<?php echo $previous;?>'><<?php  echo $previous; ?></a> <?php //previous link
+                    }
+                    else {
+                        //echo blank with col to keep column sizes
+                        echo"<a class='col-2'></a>";
+                    }
+                    ?>
+
+                    <!--Adds emprty -->
+                    <div class="col"></div>
+
+                    <!--Next-->
+                    <?php 
+
+                    //only shows next link if pid is less than 151
+                    if ($pokemon['pid'] < 151) {
+                        ?> <a class="col-2 next-previous" href='pokedex.php?pid=<?php echo $next;?>'><?php  echo $next; ?>></a> <?php //Next link
+                    }
+                    else {
+                        //echo blank with col to keep column sizes
+                        echo"<a class='col-2'></a>";
+                    }
+                    ?>
+                    </div>
                     
-                    <!--Pokemon Info + Images-->
-                    <h4 class="pokemonName"><a style="color:#E53935;font-weight:bold;">#</a><?php echo $pokemon['pid']; ?> <?php echo $pokemon['tname']; ?></h4>
+                    
+                      <!--Pokemon Name-->
+                    <div class="row">             
+                        <h4 class="pokemonName col"><a style="color:#E53935;font-weight:bold;">#</a><?php echo $pokemon['pid']; ?> <?php echo $pokemon['tname']; ?></h4>
+                    </div>
+
+                    <!--Pokemon Images-->
                     <img src="img/sprites/<?php echo $pokemon['pid']; ?>.png" class="sprite">
                     <img src="img/sprites/shiny/<?php echo $pokemon['pid']; ?>.png" class="sprite">
                     <img src="img/sprites/back/<?php echo $pokemon['pid']; ?>.png" class="sprite">
@@ -82,16 +118,16 @@ $pokemon     = $pokemonInfo->fetch();
                     }
                     ?>
                     
-                    <h6>Description</h6>
-                    <p><?php echo $pokemon['description']; ?><p>
+                    <p><a style='font-weight:bold;'>Description: </a><?php echo $pokemon['description']; ?></p>
+                    
                 </div>
                     
                 <!--Pokemon List-->
-                <div class="col-sm-7 pokemonList" id="right"> 
+                <div class="col-sm-7" id="right"> 
                 <div class="form-group row">
                     <input type="text" class="searchPokemonName col" placeholder="Search Name" onkeyup="searchPokemon()" id="myInput">
                     <select class="1-100 col searchPokemonType" placeholder="1-151" id="myInputType" name="pid" onclick="searchType()" placeholder="1" value="1">
-                        <option value="">Sort by Type</option>    
+                        <option value="">Sort Type</option>    
                         <option value="Bug">Bug</option>
                         <option value="Dragon">Dragon</option>
                         <option value="Ice">Ice</option>
@@ -108,14 +144,15 @@ $pokemon     = $pokemonInfo->fetch();
                         <option value="Rock">Rock</option>
                         <option value="Water">Water</option>
                     </select>
+                    <input type="button" class="randomPokemon col" onclick="randomPokemon()" value="Random" id="random-btn"/> 
                 </div>
                         <?php
                         //selects all pokemon
                         $pokemonResults = $conn->query("SELECT * from pokemon");
                         ?>
-                    
+                    <div class="pokemonList">
                         <table class='table table-hover' id='myTable'>
-                            <thead>
+                            <thead >
                                 <tr>
                                     <th scope='col' id='table-heading'>Number</th>
                                     <th scope='col' id='table-heading'>Name</th>
@@ -151,7 +188,7 @@ $pokemon     = $pokemonInfo->fetch();
                                 <?php }; //loop ends ?>
                             </tbody>
                         </table>               
-                </div>
+                </div></div>
             </div>
 
 
