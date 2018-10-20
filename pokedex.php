@@ -3,7 +3,7 @@
 //Pokedex home page
 
 //connects to database
-$conn = new PDO("mysql:host=localhost;dbname=medotusc_pokedex;", "medotusc_fraser", "NHD4?oWU5Bpo");
+$conn = new PDO();
 
 //generates random number between 1 and 100 (Shiny Chances)
 $randomNumber = rand(1, 10);
