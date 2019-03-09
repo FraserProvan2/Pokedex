@@ -1,5 +1,5 @@
 # Gen 1 Pokedex
-Demo: http://www.fraserprovan.co.uk/projects/pokedex/pokedex.php
+Gen 1 Pokedex built with PHP
 
 ### Credits
 * Sprites: https://veekun.com/dex/downloads
